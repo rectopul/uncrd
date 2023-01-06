@@ -1,4 +1,4 @@
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaService } from '../database/prisma.service';
 import { JsonWebToken } from '../modules/JsonWebToken'
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UserByToken } from './auth';

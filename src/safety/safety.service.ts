@@ -24,11 +24,11 @@ export class SafetyService {
         message: `This action returns a #${id} safety`,
         pageType: `safety`,
         client,
-        pageClasses: `unicred safety`
+        pageClasses: `unicred safety`,
+        title: `Unicred - Internet Banking`
       }
     } catch (error) {
       console.log(error)
-      
     }
     
   }

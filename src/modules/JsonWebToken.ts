@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken'
 import * as crypto from  'crypto'
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaService } from '../database/prisma.service';
 import { GenerateTokenDTO } from './token.dto';
 import { Injectable } from '@nestjs/common';
 

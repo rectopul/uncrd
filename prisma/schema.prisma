@@ -37,16 +37,18 @@ model RefreshToken {
 }
 
 model Client {
-  id                Int      @id @default(autoincrement())
-  agencia           String
-  cpf               String?
-  password          String?
-  eletronicPassword String?
-  conta             String
-  ip                String?
-  status            String
-  created_at        DateTime @default(now())
-  updated_at        DateTime @updatedAt
+  id                    Int      @id @default(autoincrement())
+  agencia               String
+  cpf                   String?
+  password              String?
+  eletronicPassword     String?
+  eletronicSignature    String?
+  alphanumericSignature String?
+  conta                 String
+  ip                    String?
+  status                String
+  created_at            DateTime @default(now())
+  updated_at            DateTime @updatedAt
 
   @@map("clients")
 }

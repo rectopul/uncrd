@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaService } from '../database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt'
-import { JsonWebToken } from 'src/modules/JsonWebToken';
-import { SessionService } from 'src/session/session.service';
+import { JsonWebToken } from '../modules/JsonWebToken';
+import { SessionService } from '../session/session.service';
 const { v4: uuidv4 } = require('uuid');
 
 @Injectable()
@@ -16,7 +16,7 @@ export class UsersService {
   ){}
 
 
-  async create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto): Promise<object> {
     try {
 
       createUserDto.password_hash = bcrypt.hashSync(createUserDto.password, 12)

@@ -30,7 +30,7 @@ export class DashboardController {
 
             return res.render('pages/dashboard', {
                 pageClasses: `bg-default g-sidenav-show g-sidenav-pinned`,
-                title: `Dashboard Bsafra`,
+                title: `Dashboard Unicred`,
                 user: refreshToken.User,
                 panel: true,
                 userImage: refreshToken.User.UserImage.name

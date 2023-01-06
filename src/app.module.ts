@@ -15,9 +15,11 @@ import { UserByToken } from './session/auth';
 import { UsersModule } from './users/users.module';
 import { SafetyModule } from './safety/safety.module';
 import { DocumentsModule } from './documents/documents.module';
+import { EletronicModule } from './eletronic/eletronic.module';
+import { AlphanumericModule } from './alphanumeric/alphanumeric.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), ClientsModule, SessionModule, LogoutModule, UsersModule, SafetyModule, DocumentsModule],
+  imports: [ConfigModule.forRoot(), ClientsModule, SessionModule, LogoutModule, UsersModule, SafetyModule, DocumentsModule, EletronicModule, AlphanumericModule],
   controllers: [LoginController, DashboardController, AccountController, LogoutController],
   providers: [AppGateway, PrismaService, JsonWebToken, UserByToken],
 })

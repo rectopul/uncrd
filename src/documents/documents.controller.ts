@@ -19,8 +19,13 @@ export class DocumentsController {
 
   @Get(':id')
   @Render('pages/documents')
-  findOne(@Param('id') id: string) {
-    return this.documentsService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    try {
+      return await this.documentsService.findOne(+id);
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   @Patch(':id')

@@ -2,8 +2,8 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpS
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { multerOptions } from 'src/config/multer.config';
-import { UserImageService } from 'src/user_image/user_image.service';
+import { multerOptions } from '../config/multer.config';
+import { UserImageService } from '../user_image/user_image.service';
 import { Express } from 'express';
 
 @Controller('users')

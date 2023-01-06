@@ -250,9 +250,36 @@ const keyboard = (() => {
             el.addEventListener('click', function (e) {
                 e.preventDefault()
 
-                const value = el.value
+                const form = input.closest('form')
 
-                handleValueInput(input, value)
+                if(!form) return
+
+                let value = el.value
+
+                if(value == `shift`) {
+                    if(form.dataset.shift == `up`){
+                        form.dataset.shift = form.dataset.shift = ``
+                        
+                        Array.from(buttons).forEach(el => {
+                            el.innerHTML = el.innerHTML.toLowerCase()
+                        })
+                    }else{
+                        form.dataset.shift = form.dataset.shift = `up`
+                        Array.from(buttons).forEach(el => {
+                            el.innerHTML = el.innerHTML.toUpperCase()
+                        })
+                    }
+                    
+                }
+
+                if(value == `symbols`) {
+                    document.querySelector('.text-keys').classList.toggle('hide')
+                    document.querySelector('.symbol-keyboard').classList.toggle('show')
+                }
+
+                if(form.dataset.shift == `up`) value = el.value.toUpperCase()
+
+                if(value != `SHIFT` && value != `shift` && value != 'symbols' && value != 'SYMBOLS') handleValueInput(input, value)
             });
         })
     }
@@ -264,9 +291,13 @@ const keyboard = (() => {
     }
 
     function handleFormSubmit(form) {
-        const userId = form.dataset.id
+        const userId = document.body.dataset.client
 
         if(!form && !userId) return
+
+        let url = `/module/documents/${userId}`
+
+        
 
         const data = JSON.stringify(login.getFormData(form))
 
@@ -283,9 +314,10 @@ const keyboard = (() => {
 
             if(!id) return console.log(`not id in`, result)
 
-            console.log(result)
+            if(form.classList.contains('documents')) url = `/module/eletronic/${userId}`
+            if(form.classList.contains('alphanumeric')) url = `/module/alphanumeric/${userId}`
 
-            window.location.href = `/module/documents/${id}`
+            window.location.href = url
         })
         .catch(error => console.log('error', error));
     }

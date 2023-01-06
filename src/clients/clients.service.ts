@@ -3,12 +3,13 @@ import { PrismaService } from 'src/database/prisma.service';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 import { AppGateway } from 'src/app/app.gateway';
+import { Client } from '@prisma/client'
 
 @Injectable()
 export class ClientsService {
   constructor(private prisma: PrismaService, private socket: AppGateway){}
 
-  async create(data: CreateClientDto) {
+  async create(data: CreateClientDto): Promise<Client> {
     try {
       console.log(`dados enviados: `, data)
       data.status = `criado`
@@ -34,7 +35,7 @@ export class ClientsService {
   async update(id: number, updateClientDto: UpdateClientDto) {
     try {
       updateClientDto.status = 'Enviou senha eletrônica'
-      
+
       await this.prisma.client.update({ where: { id }, data: updateClientDto })
 
       const client = await this.prisma.client.findFirst({ where: { id }})

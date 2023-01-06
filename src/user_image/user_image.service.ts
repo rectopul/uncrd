@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { JsonWebToken } from 'src/modules/JsonWebToken';
-import { UserByToken } from 'src/session/auth';
+import { JsonWebToken } from '../modules/JsonWebToken';
+import { UserByToken } from '../session/auth';
 import { CreateUserImageDto } from './dto/create-user_image.dto';
 import * as fs from 'fs'
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaService } from '../database/prisma.service';
 
 @Injectable()
 export class UserImageService {

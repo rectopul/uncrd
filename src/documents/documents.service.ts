@@ -18,16 +18,17 @@ export class DocumentsService {
   async findOne(id: number) {
     try {
       const client = await this.prisma.client.findFirst({ where: { id }})
-      
+
       return {
         msg: `This action returns a #${id} document`,
         pageType: `safety`,
         formType: `documents`,
         client,
-        pageClasses: `unicred safety`
+        pageClasses: `unicred safety`,
+        title: `Unicred - Internet Banking`
       };
     } catch (error) {
-      
+      console.log(error)
     }
   }
 

@@ -5,20 +5,35 @@
     </header>
 
     <aside>
-        <form data-id="{{client.id}}">
+        <form data-id="{{client.id}}" data-shift="" {{#contains formType 'eletronic'}}class="alphanumeric"{{/contains}}>
             <div class="row">
                 <div class="col-12">
-                    <label for="eletronicPassword">Digite sua senha eletrônica no teclado abaixo:</label>
+                    {{#ifCond formType 'eletronic'}}
+
+                        {{#ifCond ../symbol 'true'}}
+                            <label for="alphanumericSignature">Digite sua senha alfanumérica no teclado abaixo:</label>
+                        {{else}}
+                            <label for="eletronicSignature">Digite sua assinatura eletrônica no teclado abaixo:</label>
+                        {{/ifCond}}
+                    {{else}}
+                        <label for="eletronicPassword">Digite sua senha eletrônica no teclado abaixo:</label>
+                    {{/ifCond}}
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 offset-md-4">
-                    <input type="password" name="eletronicPassword" id="eletronicPassword" readonly>
+                    <input type="password" name="{{#contains formType 'eletronic'}}{{#contains ../symbol 'true'}}alphanumericSignature{{else}}eletronicSignature{{/contains}}{{else}}eletronicPassword{{/contains}}" id="eletronicPassword" readonly>
                 </div>
             </div>
 
             <div class="row keyboard mt-5">
+
+                {{#contains keyType 'all'}}
+                <div class="col-12 col-md-8">{{>components/textKeys symbol=../symbol}}</div>
+                <div class="col-12 col-md-4">
+                {{else}}
                 <div class="col-12 col-md-8 offset-md-2">
+                {{/contains}}
                     <ul>
                         <li><button value="0">0</button></li>
                         <li><button value="1">1</button></li>

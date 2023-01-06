@@ -27,7 +27,7 @@ export class UserByToken {
         
     }
 
-    async checkToken(token: string) {
+    async checkToken(token: string): Promise<any> {
         try {
             return new Promise<any>(async (resolve, reject) => {
                 try {
