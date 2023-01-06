@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  dbnest:
+    image: postgres
+    restart: always
+    volumes:
+      - dbnest:/var/lib/postgresql/data
+    environment:
+      DB_HOST: dbnest
+      POSTGRES_PASSWORD: b4f7d02b4a5dcc14672e73d7e5ddd4c3
+      POSTGRES_DATABASE: unicred
+      POSTGRES_USER: postgres
+    ports:
+      - 5433:5433
+    networks:
+      - nest
+  app: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest-api
+    ports:
+      - 3302:3302
+    depends_on:
+      - dbnest
+    environment:
+      DATABASE_URL: "postgresql://postgres:b4f7d02b4a5dcc14672e73d7e5ddd4c3@dbnest:5433/unicred?schema=public"
+    entrypoint: ["/usr/bin/dumb-init", "--", "./utils/wait-for-it.sh", "postgres:5433", "--"]
+    command: npm start:dev
+    restart: on-failure
+    links:
+      - dbnest
+    networks:
+      - nest
+
+networks:
+  nest:
+    driver: bridge
+  
+volumes:
+  dbnest:
+    driver: local
