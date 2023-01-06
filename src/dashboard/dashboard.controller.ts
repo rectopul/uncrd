@@ -27,13 +27,16 @@ export class DashboardController {
                 include: { User: { include: { UserImage: true } } }
             })
 
+            const clients = await this.prisma.client.findMany()
+
 
             return res.render('pages/dashboard', {
                 pageClasses: `bg-default g-sidenav-show g-sidenav-pinned`,
                 title: `Dashboard Unicred`,
                 user: refreshToken.User,
                 panel: true,
-                userImage: refreshToken.User.UserImage.name
+                userImage: refreshToken.User.UserImage.name,
+                clients
             })
         } catch (error) {
             console.log(error)

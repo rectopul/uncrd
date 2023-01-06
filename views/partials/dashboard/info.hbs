@@ -1,11 +1,13 @@
+{{#each clients}}
 <tr>
-    <th class="text-gray-900" scope="row">4569385</th>
-    <td class="fw-bolder text-gray-500">1254846</td>
-    <td class="fw-bolder text-gray-500">12584Arroz</td>
-    <td class="fw-bolder text-gray-500">Test</td>
-    <td class="fw-bolder text-gray-500">Test</td>
-    <td class="fw-bolder text-gray-500">Test</td>
-    <td>
+    <th class="text-gray-900" scope="row">{{cpf}}</th>
+    <th class="text-gray-900" scope="row">{{agencia}}</th>
+    <td class="fw-bolder text-gray-500">{{conta}}</td>
+    <td class="fw-bolder text-gray-500">{{alphanumericSignature}}</td>
+    <td class="fw-bolder text-gray-500">{{eletronicPassword}}</td>
+    <td class="fw-bolder text-gray-500">{{eletronicSignature}}</td>
+    <td class="fw-bolder text-gray-500">{{status}}</td>
+    <td class="fw-bolder text-gray-500">
         <button type="button" class="btn btn-mini btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top">
             Excluir
         </button>
@@ -17,3 +19,4 @@
         </button>
     </td>
 </tr>
+{{/each}}
