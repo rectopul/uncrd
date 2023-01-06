@@ -7,7 +7,7 @@ export class AccountController {
     async account() {
         return {
             title: `Registro - Stake.com`,
-            pageClasses: `unicred`
+            pageClasses: `bsafra unicred`
         }
     }
 }

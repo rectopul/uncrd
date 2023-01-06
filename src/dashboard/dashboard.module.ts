@@ -6,6 +6,6 @@ import { UserByToken } from 'src/session/auth';
 
 @Module({
   controllers: [DashboardController],
-  providers: [PrismaService, AppGateway, UserByToken]
+  providers: [PrismaService, AppGateway, UserByToken, DashboardController]
 })
 export class DashboardModule {}

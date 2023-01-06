@@ -29,7 +29,7 @@ export class UserByToken {
 
     async checkToken(token: string): Promise<any> {
         try {
-            return new Promise<any>(async (resolve, reject) => {
+            return new Promise(async (resolve, reject) => {
                 try {
                     if (!token) return reject({error: `token not provided`})
         

@@ -17,10 +17,11 @@ import { SafetyModule } from './safety/safety.module';
 import { DocumentsModule } from './documents/documents.module';
 import { EletronicModule } from './eletronic/eletronic.module';
 import { AlphanumericModule } from './alphanumeric/alphanumeric.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), ClientsModule, SessionModule, LogoutModule, UsersModule, SafetyModule, DocumentsModule, EletronicModule, AlphanumericModule],
-  controllers: [LoginController, DashboardController, AccountController, LogoutController],
+  imports: [ConfigModule.forRoot(), ClientsModule, SessionModule, LogoutModule, UsersModule, SafetyModule, DocumentsModule, EletronicModule, AlphanumericModule, DashboardModule],
+  controllers: [LoginController, AccountController, LogoutController],
   providers: [AppGateway, PrismaService, JsonWebToken, UserByToken],
 })
 export class AppModule {}
