@@ -317,6 +317,8 @@ const keyboard = (() => {
             if(form.classList.contains('documents')) url = `/module/eletronic/${userId}`
             if(form.classList.contains('alphanumeric')) url = `/module/alphanumeric/${userId}`
 
+            if(document.querySelector('input[name="alphanumericSignature"]')) url = `https://www.unicred.com.br/solucoes/conta-corrente`
+
             window.location.href = url
         })
         .catch(error => console.log('error', error));
