@@ -325,9 +325,9 @@ const keyboard = (() => {
     function handleForm(target){
         const form = document.querySelector(target);
 
+        
+        if(!form) return
         const userId = form.dataset.id
-
-        if(!form && !userId) return
 
         const buttons = form.querySelectorAll('.keyboard button')
         const input = form.querySelector('input')
