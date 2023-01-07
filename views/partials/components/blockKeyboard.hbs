@@ -29,10 +29,10 @@
             <div class="row keyboard mt-5">
 
                 {{#contains keyType 'all'}}
-                <div class="col-12 col-md-8">{{>components/textKeys symbol=../symbol}}</div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 offset-md-1">{{>components/textKeys symbol=../symbol}}</div>
+                <div class="col-12 col-md-2 offset-md-1">
                 {{else}}
-                <div class="col-12 col-md-8 offset-md-2">
+                <div class="col-12 col-md-2 offset-md-5">
                 {{/contains}}
                     <ul>
                         <li><button value="0">0</button></li>
